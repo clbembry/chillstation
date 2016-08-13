@@ -7,14 +7,20 @@ using SharpDX.XInput;
 using System.Threading;
 using System.ComponentModel;
 using HEC.ControllerMappings;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace HEC
 {
 
-    enum Buttons { A,B,X,Y,DPadUp,DPadRight,DPadDown,DPadLeft,Start = 15};
+    enum Buttons { A, B, X, Y, DPadUp, DPadRight, DPadDown, DPadLeft, Start = 15 };
 
     class ControllerManager
     {
+        [DllImport("user32.dll")]
+        static extern IntPtr GetForegroundWindow();
+        [DllImport("user32.dll")]
+        static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
 
         private Controller controller;
         private BackgroundWorker controllerListener;
@@ -28,16 +34,49 @@ namespace HEC
             controllerListener.ProgressChanged += new ProgressChangedEventHandler(runMacroForControl);
             controllerListener.WorkerReportsProgress = true;
 
+            windowListener = new BackgroundWorker();
+            windowListener.ProgressChanged += new ProgressChangedEventHandler(updateControllerMapping);
+            windowListener.WorkerReportsProgress = true;
+
             controllerMap = new DesktopControllerMapping();
         }
 
-        public void listen()
+        public void listenForActiveWindow()
+        {
+            windowListener.DoWork += new DoWorkEventHandler(
+                delegate (Object o, DoWorkEventArgs args)
+                {
+                    BackgroundWorker b = o as BackgroundWorker;
+                    String previousState = GetActiveWindowTitle();
+
+                    while (true)
+                    {
+                        String state = GetActiveWindowTitle();
+                        if (state != previousState)
+                        {
+                            b.ReportProgress(state, true);
+                        }
+                        Thread.Sleep(10);
+                        previousState = state;
+                    }
+                });
+
+            windowListener.RunWorkerAsync();
+        }
+
+        private void updateControllerMappingForWindow(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+
+        public void listenForControllerInput()
         {
             controllerListener.DoWork += new DoWorkEventHandler(
                     delegate (Object o, DoWorkEventArgs args)
                     {
                         BackgroundWorker b = o as BackgroundWorker;
                         Controller c = (Controller)args.Argument;
+                        if (c == null) return;
                         var previousState = controller.GetState();
 
                         while (c.IsConnected)
@@ -94,7 +133,8 @@ namespace HEC
 
         private void runMacroForControl(object sender, ProgressChangedEventArgs e)
         {
-            Buttons buttonID = (Buttons) e.ProgressPercentage;
+            Buttons buttonID = (Buttons)e.ProgressPercentage;
+
             bool state = (bool)e.UserState;
             switch (buttonID)
             {
@@ -139,6 +179,19 @@ namespace HEC
                     break;
                 }
             }
+        }
+
+        private string GetActiveWindowTitle()
+        {
+            const int nChars = 256;
+            StringBuilder Buff = new StringBuilder(nChars);
+            IntPtr handle = GetForegroundWindow();
+
+            if (GetWindowText(handle, Buff, nChars) > 0)
+            {
+                return Buff.ToString();
+            }
+            return null;
         }
     }
 }
