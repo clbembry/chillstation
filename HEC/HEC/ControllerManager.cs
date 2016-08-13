@@ -14,6 +14,7 @@ namespace HEC
 {
 
     enum Buttons { A, B, X, Y, DPadUp, DPadRight, DPadDown, DPadLeft, Start = 15 };
+    enum Windows { Desktop,Chrome,VLC,Unknown };
 
     class ControllerManager
     {
@@ -26,6 +27,7 @@ namespace HEC
         private BackgroundWorker controllerListener;
         private BackgroundWorker windowListener;
         private ControllerMapping controllerMap;
+        private WindowManager windowManager;
 
         public ControllerManager()
         {
@@ -34,8 +36,10 @@ namespace HEC
             controllerListener.ProgressChanged += new ProgressChangedEventHandler(runMacroForControl);
             controllerListener.WorkerReportsProgress = true;
 
+            windowManager = new WindowManager();
+
             windowListener = new BackgroundWorker();
-            windowListener.ProgressChanged += new ProgressChangedEventHandler(updateControllerMapping);
+            windowListener.ProgressChanged += new ProgressChangedEventHandler(updateControllerMappingForWindow);
             windowListener.WorkerReportsProgress = true;
 
             controllerMap = new DesktopControllerMapping();
@@ -54,7 +58,8 @@ namespace HEC
                         String state = GetActiveWindowTitle();
                         if (state != previousState)
                         {
-                            b.ReportProgress(state, true);
+                            String windowTitle = GetActiveWindowTitle();
+                            Windows window = GetWindowForTitle(windowTitle);
                         }
                         Thread.Sleep(10);
                         previousState = state;
@@ -64,9 +69,28 @@ namespace HEC
             windowListener.RunWorkerAsync();
         }
 
+        private Windows GetWindowForTitle(String title)
+        {
+            return Windows.Unknown;
+        }
+
         private void updateControllerMappingForWindow(object sender, ProgressChangedEventArgs e)
         {
-
+            Windows windowID = (Windows)e.ProgressPercentage;
+            bool state = (bool)e.UserState;
+            switch (windowID)
+            {
+                case Windows.Desktop:
+                    break;
+                case Windows.Chrome:
+                    break;
+                case Windows.VLC:
+                    break;
+                case Windows.Unknown:
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void listenForControllerInput()
@@ -87,39 +111,39 @@ namespace HEC
                                 GamepadButtonFlags buttonFlags = state.Gamepad.Buttons;
                                 if (buttonFlags.HasFlag(GamepadButtonFlags.A))
                                 {
-                                    controllerListener.ReportProgress(0, true);
+                                    controllerListener.ReportProgress((int)Buttons.A, true);
                                 }
                                 if (buttonFlags.HasFlag(GamepadButtonFlags.B))
                                 {
-                                    controllerListener.ReportProgress(1, true);
+                                    controllerListener.ReportProgress((int)Buttons.B, true);
                                 }
                                 if (buttonFlags.HasFlag(GamepadButtonFlags.X))
                                 {
-                                    controllerListener.ReportProgress(2, true);
+                                    controllerListener.ReportProgress((int)Buttons.X, true);
                                 }
                                 if (buttonFlags.HasFlag(GamepadButtonFlags.Y))
                                 {
-                                    controllerListener.ReportProgress(3, true);
+                                    controllerListener.ReportProgress((int)Buttons.Y, true);
                                 }
                                 if (buttonFlags.HasFlag(GamepadButtonFlags.DPadUp))
                                 {
-                                    controllerListener.ReportProgress(4, true);
+                                    controllerListener.ReportProgress((int)Buttons.DPadUp, true);
                                 }
                                 if (buttonFlags.HasFlag(GamepadButtonFlags.DPadRight))
                                 {
-                                    controllerListener.ReportProgress(5, true);
+                                    controllerListener.ReportProgress((int)Buttons.DPadRight, true);
                                 }
                                 if (buttonFlags.HasFlag(GamepadButtonFlags.DPadDown))
                                 {
-                                    controllerListener.ReportProgress(6, true);
+                                    controllerListener.ReportProgress((int)Buttons.DPadDown, true);
                                 }
                                 if (buttonFlags.HasFlag(GamepadButtonFlags.DPadLeft))
                                 {
-                                    controllerListener.ReportProgress(7, true);
+                                    controllerListener.ReportProgress((int)Buttons.DPadLeft, true);
                                 }
                                 if (buttonFlags.HasFlag(GamepadButtonFlags.Start))
                                 {
-                                    controllerListener.ReportProgress(15, true);
+                                    controllerListener.ReportProgress((int)Buttons.Start, true);
                                 }
                             }
                             Thread.Sleep(10);
@@ -134,7 +158,6 @@ namespace HEC
         private void runMacroForControl(object sender, ProgressChangedEventArgs e)
         {
             Buttons buttonID = (Buttons)e.ProgressPercentage;
-
             bool state = (bool)e.UserState;
             switch (buttonID)
             {
