@@ -46,3 +46,6 @@ C:\Users\clinton\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HomeBase.baml
 C:\Users\clinton\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC.g.resources
 C:\Users\clinton\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC.Properties.Resources.resources
 C:\Users\clinton\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC.csproj.GenerateResource.Cache
+C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\bin\Debug\HEC.exe.config
+C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC.exe
+C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC.pdb
