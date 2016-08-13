@@ -18,7 +18,8 @@ namespace HEC
         public App()
         {
             manager = new ControllerManager();
-            manager.listen();
+            manager.listenForControllerInput();
+            manager.listenForActiveWindow();
         }
 
     }
