@@ -22,3 +22,6 @@ c:\users\clinton\documents\visual studio 2015\Projects\HEC\HEC\bin\Debug\SharpDX
 c:\users\clinton\documents\visual studio 2015\Projects\HEC\HEC\bin\Debug\SharpDX.XInput.xml
 c:\users\clinton\documents\visual studio 2015\Projects\HEC\HEC\bin\Debug\WindowsInput.dll
 c:\users\clinton\documents\visual studio 2015\Projects\HEC\HEC\bin\Debug\WindowsInput.xml
+C:\Users\clinton\Documents\GitHub\chillstation\HEC\HEC\bin\Debug\HEC.exe.config
+C:\Users\clinton\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC.exe
+C:\Users\clinton\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC.pdb
