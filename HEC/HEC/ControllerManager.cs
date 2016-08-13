@@ -29,7 +29,6 @@ namespace HEC
             controllerListener.WorkerReportsProgress = true;
 
             controllerMap = new DesktopControllerMapping();
-
         }
 
         public void listen()

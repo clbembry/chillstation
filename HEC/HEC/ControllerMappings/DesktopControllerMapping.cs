@@ -14,9 +14,6 @@ namespace HEC.ControllerMappings
         {
             base.setMacros();
 
-            Macro showAppSwitcher = new ShowAppSwitcherMacro();
-            macros.Add("ShowAppSwitcher", showAppSwitcher);
-
             Macro arrowUp = new ArrowKeyUpMacro();
             macros.Add("ArrowUp", arrowUp);
             Macro arrowRight = new ArrowKeyRightMacro();
@@ -74,12 +71,6 @@ namespace HEC.ControllerMappings
         {
             base.performActionDPadLeft();
             macros["ArrowLeft"].run();
-        }
-
-        public override void performActionStart()
-        {
-            base.performActionStart();
-            macros["ShowAppSwitcher"].run();
         }
 
     }

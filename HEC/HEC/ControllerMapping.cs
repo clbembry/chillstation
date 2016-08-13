@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HEC.Macros;
 
 namespace HEC
 {
@@ -19,6 +20,8 @@ namespace HEC
         public virtual void setMacros()
         {
             // override
+            Macro showAppSwitcher = new ShowAppSwitcherMacro();
+            macros.Add("ShowAppSwitcher", showAppSwitcher);
         }
 
         public virtual void performActionA()
@@ -61,9 +64,9 @@ namespace HEC
             // override
         }
 
-        public virtual void performActionStart()
+        public void performActionStart()
         {
-            // override
+            macros["ShowAppSwitcher"].run();
         }
     }
 }
