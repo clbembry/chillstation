@@ -13,7 +13,7 @@ using System.Diagnostics;
 namespace HEC
 {
 
-    enum Buttons { A, B, X, Y,
+    public enum Buttons { A, B, X, Y,
         LT_A, LT_B, LT_X, LT_Y,
         RT_A, RT_B, RT_X, RT_Y,
         DPAD_UP, DPAD_RIGHT, DPAD_DOWN, DPAD_LEFT,
@@ -24,7 +24,7 @@ namespace HEC
         RT_R_BUMPER, RT_L_BUMPER,
         START, MENU, RT, LT }
 
-    enum Windows { DESKTOP,CHROME,VLC,UNKNOWN }
+    enum Windows { DESKTOP,CHROME,VLC,GENERIC }
 
     class ControllerManager
     {
@@ -53,7 +53,7 @@ namespace HEC
             windowListener.ProgressChanged += new ProgressChangedEventHandler(updateControllerMappingForWindow);
             windowListener.WorkerReportsProgress = true;
 
-            controllerMap = new UnknownControllerMapping();
+            controllerMap = new GenericControllerMapping();
         }
 
         private void RunMacroForControl(object sender, ProgressChangedEventArgs e)
@@ -178,8 +178,8 @@ namespace HEC
                 case Windows.VLC:
                     controllerMap = new VLCControllerMapping();
                     break;
-                case Windows.UNKNOWN:
-                    controllerMap = new UnknownControllerMapping();
+                case Windows.GENERIC:
+                    controllerMap = new GenericControllerMapping();
                     break;
                 default:
                     break;

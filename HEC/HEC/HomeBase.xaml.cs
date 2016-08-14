@@ -12,17 +12,30 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HEC.Macros;
 
 namespace HEC
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HomeBase: Window
     {
-        public MainWindow()
+        public List<ToolbarItem> Items;
+
+        public HomeBase()
         {
             InitializeComponent();
+            Items = new List<ToolbarItem>();
+        }
+
+        public void SetToolBarItemsWithMapping(Dictionary<Buttons, Macro> macros)
+        {
+            Items = new List<ToolbarItem>();
+            foreach (Buttons key in macros.Keys)
+            {
+                ToolbarItem item = new ToolbarItem();
+            }
         }
     }
 }

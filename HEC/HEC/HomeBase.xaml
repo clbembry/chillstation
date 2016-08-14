@@ -1,12 +1,12 @@
-﻿<Window x:Class="HEC.MainWindow"
+﻿<Window x:Class="HEC.HomeBase"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HEC"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" AllowsTransparency="True" WindowStyle="None" Opacity="0">
-    <Grid>
-        
+        Title="MainWindow" AllowsTransparency="True" WindowState="Maximized" WindowStyle="None" Topmost="True" Background="{x:Null}">
+    <Grid Height="64" VerticalAlignment="Bottom" Background="Black">
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Height="64" Margin="10,0,0,0" VerticalAlignment="Top" Width="469"/>
     </Grid>
 </Window>

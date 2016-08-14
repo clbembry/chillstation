@@ -23,7 +23,7 @@ namespace HEC
 
         private Windows GetWindowForTitle(String title)
         {
-            if (title == null) return Windows.UNKNOWN;
+            if (title == null) return Windows.GENERIC;
 
             if (title.Contains("Chrome"))
             {
@@ -33,7 +33,7 @@ namespace HEC
             {
                 return Windows.VLC;
             }
-            return Windows.UNKNOWN;
+            return Windows.GENERIC;
         }
 
         private string GetActiveWindowTitle()

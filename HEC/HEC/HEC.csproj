@@ -80,7 +80,7 @@
     <Compile Include="Commands\KeyboardCommand.cs" />
     <Compile Include="ControllerInputReader.cs" />
     <Compile Include="ControllerMappings\ChromeControllerMapping.cs" />
-    <Compile Include="ControllerMappings\UnknownControllerMapping.cs" />
+    <Compile Include="ControllerMappings\GenericControllerMapping.cs" />
     <Compile Include="ControllerMappings\VLCControllerMapping.cs" />
     <Compile Include="Macros\ChromeBackwardHistoryMacro.cs" />
     <Compile Include="Macros\ChromeForwardHistoryMacro.cs" />
@@ -88,6 +88,9 @@
     <Compile Include="Macros\ChromePreviousTabMacro.cs" />
     <Compile Include="Macros\Macro.cs" />
     <Compile Include="Macros\ShowAppsMacro.cs" />
+    <Compile Include="ToolbarItem.xaml.cs">
+      <DependentUpon>ToolbarItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowReader.cs" />
     <Page Include="HomeBase.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -104,6 +107,10 @@
       <DependentUpon>HomeBase.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ToolbarItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -133,7 +140,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

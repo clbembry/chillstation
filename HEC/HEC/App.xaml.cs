@@ -17,10 +17,16 @@ namespace HEC
 
         public App()
         {
+        }
+
+        private void AppStart(object sender, StartupEventArgs e)
+        {
             manager = new ControllerManager();
             manager.listenForControllerInput();
             manager.listenForActiveWindow();
-        }
 
+            HomeBase homeBase = new HEC.HomeBase();
+            homeBase.Show();
+        }
     }
 }

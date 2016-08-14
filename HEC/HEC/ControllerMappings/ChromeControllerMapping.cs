@@ -7,34 +7,16 @@ using HEC.Macros;
 
 namespace HEC.ControllerMappings
 {
-    class ChromeControllerMapping : ControllerMapping
+    class ChromeControllerMapping : GenericControllerMapping
     {
         protected override void SetMacros()
         {
             base.SetMacros();
 
-            macros["ChromeForwardHistory"] = new ChromeForwardHistoryMacro();
-            macros["ChromeBackwardHistory"] = new ChromeBackwardHistoryMacro();
-            macros["ChromeNextTab"] = new ChromeNextTabMacro();
-            macros["ChromePreviousTab"] = new ChromePreviousTabMacro();
-        }
-
-        public override void PerformActionLBumper()
-        {
-            macros["ChromeBackwardHistory"].Run();
-        }
-        public override void PerformActionRBumper()
-        {
-            macros["ChromeForwardHistory"].Run();
-        }
-
-        public override void PerformActionRTRBumper()
-        {
-            macros["ChromeNextTab"].Run();
-        }
-        public override void PerformActionRTLBumper()
-        {
-            macros["ChromePreviousTab"].Run();
+            macros[Buttons.R_BUMPER] = new ChromeForwardHistoryMacro();
+            macros[Buttons.L_BUMPER] = new ChromeBackwardHistoryMacro();
+            macros[Buttons.RT_R_BUMPER] = new ChromeNextTabMacro();
+            macros[Buttons.RT_L_BUMPER] = new ChromePreviousTabMacro();
         }
 
     }

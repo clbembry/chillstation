@@ -52,3 +52,5 @@ C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC.pdb
 C:\Users\Brandon\Documents\GitHub\chillstation\HEC\HEC\bin\Debug\HEC.exe.config
 C:\Users\Brandon\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC.exe
 C:\Users\Brandon\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC.pdb
+C:\Users\clinton\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\ToolbarItem.g.cs
+C:\Users\clinton\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\ToolbarItem.baml
