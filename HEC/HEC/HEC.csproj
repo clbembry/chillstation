@@ -76,7 +76,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="WindowManager.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\KeyboardCommand.cs" />
+    <Compile Include="ControllerInputReader.cs" />
+    <Compile Include="ControllerMappings\ChromeControllerMapping.cs" />
+    <Compile Include="ControllerMappings\UnknownControllerMapping.cs" />
+    <Compile Include="ControllerMappings\VLCControllerMapping.cs" />
+    <Compile Include="Macros\ChromeBackwardHistoryMacro.cs" />
+    <Compile Include="Macros\ChromeForwardHistoryMacro.cs" />
+    <Compile Include="Macros\ChromeNextTabMacro.cs" />
+    <Compile Include="Macros\ChromePreviousTabMacro.cs" />
+    <Compile Include="Macros\Macro.cs" />
+    <Compile Include="Macros\ShowAppsMacro.cs" />
+    <Compile Include="WindowReader.cs" />
     <Page Include="HomeBase.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -86,7 +98,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ControllerManager.cs" />
-    <Compile Include="ControllerMapping.cs" />
+    <Compile Include="ControllerMappings\ControllerMapping.cs" />
     <Compile Include="ControllerMappings\DesktopControllerMapping.cs" />
     <Compile Include="HomeBase.xaml.cs">
       <DependentUpon>HomeBase.xaml</DependentUpon>
@@ -94,13 +106,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Macro.cs" />
-    <Compile Include="Macros\EnterKeyPressMacro.cs" />
-    <Compile Include="Macros\ArrowKeyDownMacro.cs" />
-    <Compile Include="Macros\ArrowKeyLeftMacro.cs" />
-    <Compile Include="Macros\ArrowKeyRightMacro.cs" />
-    <Compile Include="Macros\ArrowKeyUpMacro.cs" />
-    <Compile Include="Macros\ShowAppSwitcherMacro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

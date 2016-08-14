@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HEC.Commands;
 using WindowsInput;
 using WindowsInput.Native;
 
 namespace HEC.Macros
 {
-    class ArrowKeyUpMacro : Macro
+    public class ShowAppsMacro : Macro
     {
-        public override void run()
+        public ShowAppsMacro()
         {
-            base.run();
-
-            VirtualKeyCode windowsKey = VirtualKeyCode.UP;
-            simulator.Keyboard.KeyPress(windowsKey);
+            this.Title = "My Apps";
+            this.AddCommand(new KeyboardCommand(VirtualKeyCode.TAB, KeyStates.WIN));
         }
     }
 }
