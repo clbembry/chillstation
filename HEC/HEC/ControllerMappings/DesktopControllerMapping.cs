@@ -7,7 +7,7 @@ using HEC.Macros;
 
 namespace HEC.ControllerMappings
 {
-    class DesktopControllerMapping : ControllerMapping
+    class DesktopControllerMapping : GenericControllerMapping
     {
     }
 }

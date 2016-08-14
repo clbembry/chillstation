@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HEC.ControllerMappings
 {
-    public class VLCControllerMapping : ControllerMapping
+    public class VLCControllerMapping : GenericControllerMapping
     {
         public VLCControllerMapping()
         {
