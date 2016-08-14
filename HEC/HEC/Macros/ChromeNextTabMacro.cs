@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HEC.Commands;
 using WindowsInput;
 using WindowsInput.Native;
 
 namespace HEC.Macros
 {
-    class ArrowKeyDownMacro : Macro
+    public class ChromeNextTabMacro : Macro
     {
-        public override void run()
+        public ChromeNextTabMacro()
         {
-            base.run();
-
-            VirtualKeyCode windowsKey = VirtualKeyCode.DOWN;
-            simulator.Keyboard.KeyPress(windowsKey);
+            this.Title = "Next Tab";
+            this.AddCommand(new KeyboardCommand(VirtualKeyCode.TAB, KeyStates.CTRL));
         }
     }
 }

@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HEC.Macros;
 
 namespace HEC.ControllerMappings
 {
-    class UnknownControllerMapping : ControllerMapping
+    public class VLCControllerMapping : ControllerMapping
     {
+        public VLCControllerMapping()
+        {
+
+        }
     }
 }
