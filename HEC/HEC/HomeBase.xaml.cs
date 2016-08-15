@@ -16,6 +16,7 @@ using HEC.Macros;
 using HEC.Models;
 using System.Collections.ObjectModel;
 
+
 namespace HEC
 {
     /// <summary>
@@ -37,7 +38,7 @@ namespace HEC
             foreach (Buttons key in macros.Keys)
             {
                 ToolbarAction action = new ToolbarAction(key, macros[key].Title);
-                Items.Add(new ToolbarAction(key, macros[key].Title));
+                Items.Add(action);
             }
             tStack.ItemsSource = Items;
         }

@@ -21,7 +21,7 @@
                             <ColumnDefinition />
                             <ColumnDefinition Width="16" />
                         </Grid.ColumnDefinitions>
-                        <Image Source="{Binding IconPath}" Width="32" Height="32" Margin="0 8 0 0"/>
+                        <Image Grid.Column="0" Source="{Binding Source}" Width="32" Height="32" Margin="0 8 0 0"/>
                         <TextBlock Grid.Column="1" Text="{Binding Title}" Padding="5" Foreground="White" Height="22"/>
                     </Grid>
                 </DataTemplate>
