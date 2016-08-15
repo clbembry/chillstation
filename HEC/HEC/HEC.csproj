@@ -83,9 +83,16 @@
     <Compile Include="ControllerMappings\GenericControllerMapping.cs" />
     <Compile Include="ControllerMappings\VLCControllerMapping.cs" />
     <Compile Include="Macros\ChromeBackwardHistoryMacro.cs" />
+    <Compile Include="Macros\ChromeEnterMacro.cs" />
+    <Compile Include="Macros\ChromeFocusSearchBarMacro.cs" />
     <Compile Include="Macros\ChromeForwardHistoryMacro.cs" />
+    <Compile Include="Macros\ChromeHomeMacro.cs" />
+    <Compile Include="Macros\ChromeNewTabMacro.cs" />
     <Compile Include="Macros\ChromeNextTabMacro.cs" />
     <Compile Include="Macros\ChromePreviousTabMacro.cs" />
+    <Compile Include="Macros\ChromeRefreshMacro.cs" />
+    <Compile Include="Macros\ChromeFullscreenMacro.cs" />
+    <Compile Include="Macros\ContextMacro.cs" />
     <Compile Include="Macros\Macro.cs" />
     <Compile Include="Macros\ShowAppsMacro.cs" />
     <Compile Include="ToolbarItem.xaml.cs">
