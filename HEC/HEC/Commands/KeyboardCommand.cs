@@ -104,7 +104,7 @@ namespace HEC.Commands
             Down(shiftKey);
             Press(key);
             Up(shiftKey);
-            Up(ctrlKey);
+            Down(ctrlKey);
         }
     }
 }

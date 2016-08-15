@@ -146,7 +146,7 @@ namespace HEC
         }
         public void PerformActionRTLBumper() {
             if (macros.ContainsKey(Buttons.RT_L_BUMPER))
-                macros[Buttons.RT_L_BUMPER].Run();
+                macros[Buttons.RT_R_BUMPER].Run();
         }
         public void PerformActionRTRBumper() {
             if (macros.ContainsKey(Buttons.RT_R_BUMPER))
