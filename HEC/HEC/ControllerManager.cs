@@ -39,6 +39,8 @@ namespace HEC
         private WindowReader windowReader = new WindowReader();
         private ControllerInputReader inputReader;
 
+        public HomeBase home;
+
         public ControllerManager()
         {
             inputReader = new HEC.ControllerInputReader();
@@ -54,6 +56,9 @@ namespace HEC
             windowListener.WorkerReportsProgress = true;
 
             controllerMap = new GenericControllerMapping();
+
+            home = new HEC.HomeBase();
+            home.Show();
         }
 
         private void RunMacroForControl(object sender, ProgressChangedEventArgs e)
@@ -184,6 +189,7 @@ namespace HEC
                 default:
                     break;
             }
+            home.SetToolBarItemsWithMapping(controllerMap.macros);
         }
 
         private bool DidPressButton(GamepadButtonFlags buttonFlag, GamepadButtonFlags oldFlags, GamepadButtonFlags newFlags)
