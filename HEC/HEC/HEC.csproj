@@ -107,6 +107,8 @@
     <Compile Include="Macros\VLCFullscreenMacro.cs" />
     <Compile Include="Macros\VLCOpenMacro.cs" />
     <Compile Include="Macros\VLCPausePlayMacro.cs" />
+    <Compile Include="Models\Icon.cs" />
+    <Compile Include="Models\ToolbarAction.cs" />
     <Compile Include="ToolbarItem.xaml.cs">
       <DependentUpon>ToolbarItem.xaml</DependentUpon>
     </Compile>
@@ -159,8 +161,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Resource Include="Resources\AButton.png" />
+    <Resource Include="Resources\BButton.png" />
+    <Resource Include="Resources\DPadDown.png" />
+    <Resource Include="Resources\DPadLeft.png" />
+    <Resource Include="Resources\DPadRight.png" />
+    <Resource Include="Resources\DPadUp.png" />
+    <Resource Include="Resources\LBumper.png" />
+    <Resource Include="Resources\MenuButton.png" />
+    <Resource Include="Resources\RBumper.png" />
+    <Resource Include="Resources\StartButton.png" />
+    <Resource Include="Resources\XButton.png" />
+    <Resource Include="Resources\YButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
