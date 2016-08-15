@@ -24,9 +24,6 @@ namespace HEC
             manager = new ControllerManager();
             manager.listenForControllerInput();
             manager.listenForActiveWindow();
-
-            HomeBase homeBase = new HEC.HomeBase();
-            homeBase.Show();
         }
     }
 }

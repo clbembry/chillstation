@@ -109,9 +109,6 @@
     <Compile Include="Macros\VLCPausePlayMacro.cs" />
     <Compile Include="Models\Icon.cs" />
     <Compile Include="Models\ToolbarAction.cs" />
-    <Compile Include="ToolbarItem.xaml.cs">
-      <DependentUpon>ToolbarItem.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WindowReader.cs" />
     <Page Include="HomeBase.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -128,10 +125,6 @@
       <DependentUpon>HomeBase.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ToolbarItem.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -163,7 +156,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="Resources\AButton.png" />
+    <Resource Include="Resources\AButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\BButton.png" />
     <Resource Include="Resources\DPadDown.png" />
     <Resource Include="Resources\DPadLeft.png" />

@@ -8,17 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/abutton.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/bbutton.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/dpaddown.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/dpadleft.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/dpadright.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/dpadup.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/lbumper.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/menubutton.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/rbumper.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/startbutton.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/xbutton.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/ybutton.png")]
 
 
