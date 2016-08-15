@@ -13,14 +13,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HEC.Models;
 
 namespace HEC
 {
     public partial class ToolbarItem : UserControl
     {
-        public ToolbarItem()
+        public ToolbarItem(ToolbarAction action)
         {
             InitializeComponent();
+            this.DataContext = action;
         }
     }
 }

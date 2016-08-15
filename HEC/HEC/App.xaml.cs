@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using HEC.Commands;
+using HEC.ControllerMappings;
 
 namespace HEC
 {
@@ -24,9 +26,6 @@ namespace HEC
             manager = new ControllerManager();
             manager.listenForControllerInput();
             manager.listenForActiveWindow();
-
-            HomeBase homeBase = new HEC.HomeBase();
-            homeBase.Show();
         }
     }
 }
