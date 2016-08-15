@@ -13,10 +13,15 @@ namespace HEC.ControllerMappings
         {
             base.SetMacros();
 
-            macros[Buttons.R_BUMPER] = new ChromeForwardHistoryMacro();
+            macros[Buttons.A] = new ChromeEnterMacro();
+            macros[Buttons.X] = new ChromeNewTabMacro();
+            macros[Buttons.Y] = new ChromeFocusSearchBarMacro();
             macros[Buttons.L_BUMPER] = new ChromeBackwardHistoryMacro();
+            macros[Buttons.R_BUMPER] = new ChromeForwardHistoryMacro();
+            macros[Buttons.RT_A] = new ChromeRefreshMacro();
+            macros[Buttons.RT_X] = new ChromeFullscreenMacro();
             macros[Buttons.RT_R_BUMPER] = new ChromeNextTabMacro();
-            macros[Buttons.RT_L_BUMPER] = new ChromePreviousTabMacro();
+            macros[Buttons.RT_L_BUMPER] = new ChromePreviousTabMacro();                   
         }
 
     }

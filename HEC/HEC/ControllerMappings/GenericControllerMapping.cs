@@ -12,6 +12,21 @@ namespace HEC.ControllerMappings
         protected override void SetMacros()
         {
             Macro ShowApps = new ShowAppsMacro();
+
+            macros[Buttons.A] = new GenericReturnMacro();
+            macros[Buttons.B] = new GenericEscapeMacro();
+            //macros[Buttons.X] = new GenericXXXMacro();
+            macros[Buttons.Y] = new GenericWindowsMacro();
+
+            macros[Buttons.DPAD_UP] = new GenericDPadUpMacro();
+            macros[Buttons.DPAD_DOWN] = new GenericDPadDownMacro();
+            macros[Buttons.DPAD_LEFT] = new GenericDPadLeftMacro();
+            macros[Buttons.DPAD_RIGHT] = new GenericDPadRightMacro();
+
+            macros[Buttons.L_BUMPER] = new GenericLeftBumperMacro();
+            macros[Buttons.R_BUMPER] = new GenericRightBumperMacro();
+
+            //macros[Buttons.MENU] = ShowMenu;
             macros[Buttons.START] = ShowApps;
         }
     }
