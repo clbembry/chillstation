@@ -9,7 +9,7 @@ namespace HEC.Macros
 {
     public abstract class Macro
     {
-        protected String Title;
+        public String Title;
         protected List<Command> commands;
 
         protected void AddCommand(Command command)
