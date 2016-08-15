@@ -83,13 +83,30 @@
     <Compile Include="ControllerMappings\GenericControllerMapping.cs" />
     <Compile Include="ControllerMappings\VLCControllerMapping.cs" />
     <Compile Include="Macros\ChromeBackwardHistoryMacro.cs" />
+    <Compile Include="Macros\ChromeEnterMacro.cs" />
+    <Compile Include="Macros\ChromeFocusSearchBarMacro.cs" />
     <Compile Include="Macros\ChromeForwardHistoryMacro.cs" />
+    <Compile Include="Macros\ChromeHomeMacro.cs" />
+    <Compile Include="Macros\ChromeNewTabMacro.cs" />
     <Compile Include="Macros\ChromeNextTabMacro.cs" />
     <Compile Include="Macros\ChromePreviousTabMacro.cs" />
+    <Compile Include="Macros\ChromeRefreshMacro.cs" />
+    <Compile Include="Macros\ChromeFullscreenMacro.cs" />
+    <Compile Include="Macros\ContextMacro.cs" />
+    <Compile Include="Macros\GenericDPadDownMacro.cs" />
+    <Compile Include="Macros\GenericDPadLeftMacro.cs" />
+    <Compile Include="Macros\GenericDPadRightMacro.cs" />
+    <Compile Include="Macros\GenericDPadUpMacro.cs" />
+    <Compile Include="Macros\GenericEscapeMacro.cs" />
+    <Compile Include="Macros\GenericLeftBumperMacro.cs" />
+    <Compile Include="Macros\GenericReturnMacro.cs" />
+    <Compile Include="Macros\GenericRightBumperMacro.cs" />
+    <Compile Include="Macros\GenericWindowsMacro.cs" />
     <Compile Include="Macros\Macro.cs" />
     <Compile Include="Macros\ShowAppsMacro.cs" />
-    <Compile Include="Models\ToolbarAction.cs" />
-    <Compile Include="Models\Icon.cs" />
+    <Compile Include="Macros\VLCFullscreenMacro.cs" />
+    <Compile Include="Macros\VLCOpenMacro.cs" />
+    <Compile Include="Macros\VLCPausePlayMacro.cs" />
     <Compile Include="ToolbarItem.xaml.cs">
       <DependentUpon>ToolbarItem.xaml</DependentUpon>
     </Compile>
@@ -142,20 +159,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Resources\AButton.png" />
-    <Resource Include="Resources\BButton.png" />
-    <Resource Include="Resources\DPadDown.png" />
-    <Resource Include="Resources\DPadLeft.png" />
-    <Resource Include="Resources\DPadRight.png" />
-    <Resource Include="Resources\DPadUp.png" />
-    <Resource Include="Resources\LBumper.png" />
-    <Resource Include="Resources\MenuButton.png" />
-    <Resource Include="Resources\RBumper.png" />
-    <Resource Include="Resources\StartButton.png" />
-    <Resource Include="Resources\XButton.png" />
-    <Resource Include="Resources\YButton.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
