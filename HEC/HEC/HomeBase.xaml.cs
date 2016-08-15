@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HEC.Macros;
+using HEC.Models;
+using System.Collections.ObjectModel;
 
 namespace HEC
 {
@@ -21,21 +23,23 @@ namespace HEC
     /// </summary>
     public partial class HomeBase: Window
     {
-        public List<ToolbarItem> Items;
+        public ObservableCollection<ToolbarAction> Items;
 
         public HomeBase()
         {
             InitializeComponent();
-            Items = new List<ToolbarItem>();
+            Items = new ObservableCollection<ToolbarAction>();
         }
 
         public void SetToolBarItemsWithMapping(Dictionary<Buttons, Macro> macros)
         {
-            Items = new List<ToolbarItem>();
+            Items = new ObservableCollection<ToolbarAction>();
             foreach (Buttons key in macros.Keys)
             {
-                ToolbarItem item = new ToolbarItem();
+                ToolbarAction action = new ToolbarAction(key, macros[key].Title);
+                Items.Add(new ToolbarAction(key, macros[key].Title));
             }
+            tStack.ItemsSource = Items;
         }
     }
 }
