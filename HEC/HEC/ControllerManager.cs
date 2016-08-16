@@ -9,6 +9,8 @@ using System.ComponentModel;
 using HEC.ControllerMappings;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using WindowsInput;
+using WindowsInput.Native;
 
 namespace HEC
 {
@@ -22,7 +24,7 @@ namespace HEC
         R_BUMPER, L_BUMPER,
         LT_R_BUMPER, LT_L_BUMPER,
         RT_R_BUMPER, RT_L_BUMPER,
-        START, MENU, RT, LT }
+        START, MENU, RT, LT, L_STICK, R_STICK }
 
     enum Windows { DESKTOP,CHROME,VLC,GENERIC,SPOTIFY }
 
@@ -34,20 +36,28 @@ namespace HEC
         static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
 
         private BackgroundWorker controllerListener;
+        private BackgroundWorker thumbstickListener;
         private BackgroundWorker windowListener;
         private ControllerMapping controllerMap;
         private WindowReader windowReader = new WindowReader();
         private ControllerInputReader inputReader;
+        private ControllerInputReader mouseReader;
+        private InputSimulator simulator;
 
         public HomeBase home;
 
         public ControllerManager()
         {
             inputReader = new HEC.ControllerInputReader();
+            mouseReader = new HEC.ControllerInputReader();
 
             controllerListener = new BackgroundWorker();
             controllerListener.ProgressChanged += new ProgressChangedEventHandler(RunMacroForControl);
             controllerListener.WorkerReportsProgress = true;
+
+            thumbstickListener = new BackgroundWorker();
+            thumbstickListener.ProgressChanged += new ProgressChangedEventHandler(UpdateMouse);
+            thumbstickListener.WorkerReportsProgress = true;
 
             windowReader = new WindowReader();
 
@@ -57,8 +67,44 @@ namespace HEC
 
             controllerMap = new GenericControllerMapping();
 
+            simulator = new InputSimulator();
+
             home = new HEC.HomeBase();
             home.Show();
+        }
+
+        private void UpdateMouse(object sender, ProgressChangedEventArgs e)
+        {
+            int[] coordinates = (int[])e.UserState;
+            int deltaX = 0;
+            int deltaY = 0;
+            int magnitudeX = 0;
+            int magnitudeY = 0;
+            float leftRatioX = (float) coordinates[0] / 32000;
+            float leftRatioY = (float) coordinates[1] / 32000;
+            float rightRatioX = (float)coordinates[2] / 32000;
+            float rightRatioY = (float)coordinates[3] / 32000;
+
+            if (Math.Abs(coordinates[0]) > 5000)
+            {
+                deltaX = (int) (15 * leftRatioX);
+            }
+            if (Math.Abs(coordinates[1]) > 5000)
+            {
+                deltaY = (int)(-1 * 15 * leftRatioY);
+            }
+            if (Math.Abs(coordinates[2]) > 5000)
+            {
+                magnitudeX = (int)(5 * rightRatioX);
+            }
+            if (Math.Abs(coordinates[3]) > 5000)
+            {
+                magnitudeY = (int)(5 * rightRatioY);
+            }
+
+            simulator.Mouse.VerticalScroll(magnitudeY);
+            simulator.Mouse.HorizontalScroll(magnitudeX);
+            simulator.Mouse.MoveMouseBy(deltaX, deltaY);
         }
 
         private void RunMacroForControl(object sender, ProgressChangedEventArgs e)
@@ -163,6 +209,10 @@ namespace HEC
                     controllerMap.PerformActionStart();
                     break;
                 case Buttons.MENU:
+                    controllerMap.PerformActionMenu();
+                    break;
+                case Buttons.L_STICK:
+                    controllerMap.PerformActionLStick();
                     break;
                 default:
                     break;
@@ -221,6 +271,22 @@ namespace HEC
 
         public void listenForControllerInput()
         {
+            thumbstickListener.DoWork += new DoWorkEventHandler(
+                delegate (Object o, DoWorkEventArgs args)
+                {
+                    ControllerInputReader reader = (ControllerInputReader)args.Argument;
+                    if (reader == null) return;
+                    BackgroundWorker b = o as BackgroundWorker;
+
+                    while (reader.CanRead())
+                    {
+                        int[] coordinates = reader.GetThumbCoordinates();
+                        thumbstickListener.ReportProgress(1, coordinates);
+                        Thread.Sleep(10);
+                    }
+                }
+            );
+
             controllerListener.DoWork += new DoWorkEventHandler(
                 delegate (Object o, DoWorkEventArgs args)
                 {
@@ -367,9 +433,17 @@ namespace HEC
                                     controllerListener.ReportProgress((int)Buttons.DPAD_LEFT, true);
                                 }
                             }
-                            if (buttonFlags.HasFlag(GamepadButtonFlags.Start))
+                            if (DidPressButton(GamepadButtonFlags.Start, oldButtonFlags, buttonFlags))
                             {
                                 controllerListener.ReportProgress((int)Buttons.START, true);
+                            }
+                            if (DidPressButton(GamepadButtonFlags.Back, oldButtonFlags, buttonFlags))
+                            {
+                                controllerListener.ReportProgress((int)Buttons.MENU, true);
+                            }
+                            if (DidPressButton(GamepadButtonFlags.LeftThumb, oldButtonFlags, buttonFlags))
+                            {
+                                controllerListener.ReportProgress((int)Buttons.L_STICK, true);
                             }
                         }
                         Thread.Sleep(10);
@@ -379,6 +453,7 @@ namespace HEC
                 });
 
             controllerListener.RunWorkerAsync(inputReader);
+            thumbstickListener.RunWorkerAsync(mouseReader);
         }
 
         public void listenForActiveWindow()

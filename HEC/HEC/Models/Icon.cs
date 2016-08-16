@@ -43,9 +43,9 @@ namespace HEC.Models
                 case Buttons.DPAD_LEFT:
                     return "/Resources/DPadLeft.png";
                 case Buttons.START:
-                    return "/Resources/StartButton.png";
-                case Buttons.MENU:
                     return "/Resources/MenuButton.png";
+                case Buttons.MENU:
+                    return "/Resources/StartButton.png";
                 default:
                     return "";
             }

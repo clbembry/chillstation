@@ -26,8 +26,9 @@ namespace HEC.ControllerMappings
             macros[Buttons.L_BUMPER] = new GenericLeftBumperMacro();
             macros[Buttons.R_BUMPER] = new GenericRightBumperMacro();
 
-            //macros[Buttons.MENU] = ShowMenu;
+            macros[Buttons.MENU] = new WindowsCortanaMacro();
             macros[Buttons.START] = ShowApps;
+            macros[Buttons.L_STICK] = new WindowsLeftMouseClickMacro();
         }
     }
 }
