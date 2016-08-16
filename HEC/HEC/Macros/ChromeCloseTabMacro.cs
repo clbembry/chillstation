@@ -9,12 +9,12 @@ using WindowsInput.Native;
 
 namespace HEC.Macros
 {
-    class ChromeBackwardHistoryMacro : Macro
+    public class ChromeCloseTabMacro : Macro
     {
-        public ChromeBackwardHistoryMacro()
+        public ChromeCloseTabMacro()
         {
-            this.Title = "Back";
-            this.AddCommand(new KeyboardCommand(VirtualKeyCode.LEFT, KeyStates.ALT));
+            this.Title = "Close Tab";
+            this.AddCommand(new KeyboardCommand(VirtualKeyCode.VK_W, KeyStates.CTRL));
         }
     }
 }
