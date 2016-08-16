@@ -78,6 +78,8 @@
     </ApplicationDefinition>
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\KeyboardCommand.cs" />
+    <Compile Include="Commands\MouseCommand.cs" />
+    <Compile Include="Commands\SleepCommand.cs" />
     <Compile Include="ControllerInputReader.cs" />
     <Compile Include="ControllerMappings\ChromeControllerMapping.cs" />
     <Compile Include="ControllerMappings\GenericControllerMapping.cs" />
@@ -107,6 +109,9 @@
     <Compile Include="Macros\VLCFullscreenMacro.cs" />
     <Compile Include="Macros\VLCOpenMacro.cs" />
     <Compile Include="Macros\VLCPausePlayMacro.cs" />
+    <Compile Include="Macros\WindowsCortanaMacro.cs" />
+    <Compile Include="Macros\WindowsLeftMouseClickMacro.cs" />
+    <Compile Include="Macros\WindowsMouseVerticalScrollMacro.cs" />
     <Compile Include="Models\Icon.cs" />
     <Compile Include="Models\ToolbarAction.cs" />
     <Compile Include="WindowReader.cs" />

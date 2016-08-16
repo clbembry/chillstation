@@ -16,6 +16,10 @@ namespace HEC.Commands
         {
             // override
         }
+        public virtual void Run(int magnitude)
+        {
+            // override
+        }
 
         protected virtual void Up(VirtualKeyCode key) {
             // override
