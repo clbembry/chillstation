@@ -24,7 +24,7 @@ namespace HEC
         RT_R_BUMPER, RT_L_BUMPER,
         START, MENU, RT, LT }
 
-    enum Windows { DESKTOP,CHROME,VLC,GENERIC }
+    enum Windows { DESKTOP,CHROME,VLC,GENERIC,SPOTIFY }
 
     class ControllerManager
     {
@@ -38,6 +38,8 @@ namespace HEC
         private ControllerMapping controllerMap;
         private WindowReader windowReader = new WindowReader();
         private ControllerInputReader inputReader;
+
+        public HomeBase home;
 
         public ControllerManager()
         {
@@ -54,6 +56,9 @@ namespace HEC
             windowListener.WorkerReportsProgress = true;
 
             controllerMap = new GenericControllerMapping();
+
+            home = new HEC.HomeBase();
+            home.Show();
         }
 
         private void RunMacroForControl(object sender, ProgressChangedEventArgs e)
@@ -178,12 +183,16 @@ namespace HEC
                 case Windows.VLC:
                     controllerMap = new VLCControllerMapping();
                     break;
+                case Windows.SPOTIFY:
+                    controllerMap = new SpotifyControllerMapping();
+                    break;
                 case Windows.GENERIC:
                     controllerMap = new GenericControllerMapping();
                     break;
                 default:
                     break;
             }
+            home.SetToolBarItemsWithMapping(controllerMap.macros);
         }
 
         private bool DidPressButton(GamepadButtonFlags buttonFlag, GamepadButtonFlags oldFlags, GamepadButtonFlags newFlags)

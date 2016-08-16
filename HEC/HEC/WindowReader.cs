@@ -33,6 +33,10 @@ namespace HEC
             {
                 return Windows.VLC;
             }
+            if (title.Contains("Spotify"))
+            {
+                return Windows.SPOTIFY;
+            }
             return Windows.GENERIC;
         }
 
