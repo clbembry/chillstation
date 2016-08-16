@@ -77,7 +77,6 @@ C:\Users\Brandon\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC.Properties.
 C:\Users\Brandon\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC.csproj.GenerateResource.Cache
 C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC.csprojResolveAssemblyReference.cache
 C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HomeBase.g.cs
-C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\ToolbarItem.g.cs
 C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\App.g.cs
 C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC_MarkupCompile.cache
 C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC_MarkupCompile.lref
@@ -94,7 +93,6 @@ C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\bin\Debug\SharpDX.xml
 C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\bin\Debug\SharpDX.XInput.xml
 C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\bin\Debug\WindowsInput.xml
 C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HomeBase.baml
-C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\ToolbarItem.baml
 C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC.g.resources
 C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC.Properties.Resources.resources
 C:\Users\Jered\Documents\GitHub\chillstation\HEC\HEC\obj\Debug\HEC.csproj.GenerateResource.Cache
