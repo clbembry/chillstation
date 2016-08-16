@@ -16,12 +16,13 @@ using HEC.Macros;
 using HEC.Models;
 using System.Collections.ObjectModel;
 
+
 namespace HEC
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class HomeBase: Window
+    public partial class HomeBase : Window
     {
         public ObservableCollection<ToolbarAction> Items;
 
@@ -37,7 +38,7 @@ namespace HEC
             foreach (Buttons key in macros.Keys)
             {
                 ToolbarAction action = new ToolbarAction(key, macros[key].Title);
-                Items.Add(new ToolbarAction(key, macros[key].Title));
+                Items.Add(action);
             }
             tStack.ItemsSource = Items;
         }

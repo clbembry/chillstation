@@ -57,7 +57,6 @@ namespace HEC
 
             controllerMap = new GenericControllerMapping();
 
-
             home = new HEC.HomeBase();
             home.Show();
         }
