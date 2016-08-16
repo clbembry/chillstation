@@ -81,6 +81,7 @@
     <Compile Include="ControllerInputReader.cs" />
     <Compile Include="ControllerMappings\ChromeControllerMapping.cs" />
     <Compile Include="ControllerMappings\GenericControllerMapping.cs" />
+    <Compile Include="ControllerMappings\SpotifyControllerMapping.cs" />
     <Compile Include="ControllerMappings\VLCControllerMapping.cs" />
     <Compile Include="Macros\ChromeBackwardHistoryMacro.cs" />
     <Compile Include="Macros\ChromeEnterMacro.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Macros\GenericWindowsMacro.cs" />
     <Compile Include="Macros\Macro.cs" />
     <Compile Include="Macros\ShowAppsMacro.cs" />
+    <Compile Include="Macros\SpotifyPausePlayMacro.cs" />
     <Compile Include="Macros\VLCFullscreenMacro.cs" />
     <Compile Include="Macros\VLCOpenMacro.cs" />
     <Compile Include="Macros\VLCPausePlayMacro.cs" />

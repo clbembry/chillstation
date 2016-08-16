@@ -24,7 +24,7 @@ namespace HEC
         RT_R_BUMPER, RT_L_BUMPER,
         START, MENU, RT, LT }
 
-    enum Windows { DESKTOP,CHROME,VLC,GENERIC }
+    enum Windows { DESKTOP,CHROME,VLC,GENERIC,SPOTIFY }
 
     class ControllerManager
     {
@@ -182,6 +182,9 @@ namespace HEC
                     break;
                 case Windows.VLC:
                     controllerMap = new VLCControllerMapping();
+                    break;
+                case Windows.SPOTIFY:
+                    controllerMap = new SpotifyControllerMapping();
                     break;
                 case Windows.GENERIC:
                     controllerMap = new GenericControllerMapping();
