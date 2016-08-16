@@ -24,6 +24,12 @@ namespace HEC
                 macros[Buttons.START].Run();
         }
 
+        public void PerformActionLStick()
+        {
+            if (macros.ContainsKey(Buttons.L_STICK))
+                macros[Buttons.L_STICK].Run();
+        }
+
         public void PerformActionMenu()
         {
             if (macros.ContainsKey(Buttons.MENU))

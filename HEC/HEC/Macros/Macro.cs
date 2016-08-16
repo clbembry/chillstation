@@ -24,6 +24,13 @@ namespace HEC.Macros
                 command.Run();
             }
         }
+        public virtual void Run(int magnitude)
+        {
+            foreach (Command command in commands)
+            {
+                command.Run(magnitude);
+            }
+        }
 
         public override string ToString()
         {
